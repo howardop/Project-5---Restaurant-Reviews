@@ -4,6 +4,38 @@ let restaurants,
 var newMap
 var markers = []
 
+
+self.addEventListener('install', function(e){
+  console.log('Install event fired: ' + e);
+  e.waitUntil(
+    caches.open('v1').then(function(cache){
+      return cache.addAll(cacheFiles);
+    })
+  );
+});
+
+/* Register service worker */
+navigator.serviceWorker.getRegistrations().then(function(registrations) {
+  console.log('Removing service workers');
+  for(let registration of registrations) {
+   registration.unregister()
+  } 
+})
+
+if ('serviceWorker' in navigator) {
+  console.log('Browser supports service workers');
+  navigator.serviceWorker.register('/sw.js')
+  .then(function(registration) {
+    console.log('Service worker registration succeeded: ', registration);
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+} else {
+  console.log('Browser does NOT support service workers');
+}
+
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -178,6 +210,7 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
+  more.tabIndex = '3';   // Makes tab jump to restaurant list after filter options
   li.append(more)
 
   return li

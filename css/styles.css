@@ -278,3 +278,13 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
+/* Highlight selected items */
+:focus {
+  border: solid red 20px;
+}
+
+select:active, select:hover{
+  outline-color: red;
+  outline-width: 20px;
+}
