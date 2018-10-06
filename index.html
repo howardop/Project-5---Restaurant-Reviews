@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <!-- Is this next line necessary? -->
   <meta http-equiv="X-UA-Compatible" content='ie=edge'>  
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
@@ -26,10 +26,12 @@
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select role='tablist' tabindex='2' id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <label class='select-label' for='neighborhoods-select'>Select Neighborhood</label>
+        <select role='listbox' tabindex='2' id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select role='tablist' tabindex='2' id="cuisines-select" name="cuisines" class=':active' onchange="updateRestaurants()">
+        <label class='select-label' for='cuisines-select'>Select Cuisine</label>
+        <select role='listbox' tabindex='2' id="cuisines-select" name="cuisines" class=':active' onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
