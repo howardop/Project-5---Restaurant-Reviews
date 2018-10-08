@@ -8,12 +8,12 @@ var markers = []
 if ('serviceWorker' in navigator) {
   console.log('Browser supports service workers');
   navigator.serviceWorker.register('/sw.js')
-  .then(function(registration) {
-    console.log('Service worker registration succeeded: ', registration);
-  })
-  .catch(function(err) {
-    console.error(err);
-  });
+    .then(function (registration) {
+      console.log('Service worker registration succeeded: ', registration);
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
 } else {
   console.log('Browser does NOT support service workers');
 }
@@ -88,10 +88,10 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
  */
 initMap = () => {
   self.newMap = L.map('map', {
-        center: [40.722216, -73.987501],
-        zoom: 12,
-        scrollWheelZoom: false
-      });
+    center: [40.722216, -73.987501],
+    zoom: 12,
+    scrollWheelZoom: false
+  });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
     mapboxToken: 'pk.eyJ1IjoiaG93YXJkbyIsImEiOiJjam1zNzh5N3MwMDluM3Buc3V6NTNkYTl1In0.fEBus8AVVm1o6Kj7Dt5QKQ',
     maxZoom: 18,
@@ -194,7 +194,7 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  more.tabIndex = '3';   // Makes tab jump to restaurant list after filter options
+  more.tabIndex = '3'; // Makes tab jump to restaurant list after filter options
   li.append(more)
 
   return li
@@ -208,13 +208,14 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
     marker.on("click", onClick);
+
     function onClick() {
       window.location.href = marker.options.url;
     }
     self.markers.push(marker);
   });
 
-} 
+}
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
@@ -225,4 +226,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
