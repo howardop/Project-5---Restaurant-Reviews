@@ -4,24 +4,7 @@ let restaurants,
 var newMap
 var markers = []
 
-
-self.addEventListener('install', function(e){
-  console.log('Install event fired: ' + e);
-  e.waitUntil(
-    caches.open('v1').then(function(cache){
-      return cache.addAll(cacheFiles);
-    })
-  );
-});
-
 /* Register service worker */
-navigator.serviceWorker.getRegistrations().then(function(registrations) {
-  console.log('Removing service workers');
-  for(let registration of registrations) {
-   registration.unregister()
-  } 
-})
-
 if ('serviceWorker' in navigator) {
   console.log('Browser supports service workers');
   navigator.serviceWorker.register('/sw.js')
