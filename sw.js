@@ -56,19 +56,3 @@ self.addEventListener('install', function(event){
         })
     );
   });
-/*
-  self.addEventListener('fetch', function(e) {
-      e.respondWith(
-          caches.match(e.request).then(fuction(response){
-              if (response) {
-                  console.log('Found', e.request, ' in cache');
-                  console.log('Found ' + e.request + ' in cache');
-                  return response;
-              } else {
-                  console.log('Could not find ', e.request, ' in cache, FETCHING');
-                  return fetch(e.request);
-              }
-          })
-      );
-  })
-  */
