@@ -179,7 +179,7 @@ createRestaurantHTML = (restaurant) => {
   image.setAttribute('alt', restaurant.name);
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   li.append(name);
 
@@ -193,8 +193,8 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.setAttribute('aria-label', `View details for the restaurant named ${restaurant.name}`);
   more.href = DBHelper.urlForRestaurant(restaurant);
-  more.tabIndex = '3'; // Makes tab jump to restaurant list after filter options
   li.append(more)
 
   return li

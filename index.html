@@ -15,7 +15,7 @@
 <body>
   <header>
     <nav>
-      <h1 title='Main page'><a aria-label='Home' tabindex='1' href="/" >Restaurant Reviews</a></h1>
+      <h1 title='Main page'><a aria-label='Home' href="/" >Restaurant Reviews</a></h1>
     </nav>
   </header>
 
@@ -27,11 +27,11 @@
       <div class="filter-options">
         <h2>Filter Results</h2>
         <label class='select-label' for='neighborhoods-select'>Select Neighborhood</label>
-        <select role='listbox' tabindex='2' id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select role='listbox' id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
         <label class='select-label' for='cuisines-select'>Select Cuisine</label>
-        <select role='listbox' tabindex='2' id="cuisines-select" name="cuisines" class=':active' onchange="updateRestaurants()">
+        <select role='listbox' id="cuisines-select" name="cuisines" class=':active' onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
